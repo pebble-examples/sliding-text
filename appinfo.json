@@ -1,0 +1,20 @@
+{
+  "uuid": "C7A9D535-E9BD-4C36-9C30-B45AD0908634",
+  "shortName": "Sliding Text",
+  "longName": "Sliding Text",
+  "companyName": "Pebble Technology",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": [
+    "basalt"
+  ],
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
