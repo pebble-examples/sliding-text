@@ -57,7 +57,7 @@ SlidingTextData *s_data;
 static void init_sliding_row(SlidingTextData *data, SlidingRow *row, GRect pos, GFont font,
         int delay) {
   row->label = text_layer_create(pos);
-
+  text_layer_set_text_alignment(row->label, PBL_IF_ROUND_ELSE(GTextAlignmentCenter, GTextAlignmentLeft));
   text_layer_set_background_color(row->label, GColorClear);
   text_layer_set_text_color(row->label, GColorWhite);
   if (font) {
