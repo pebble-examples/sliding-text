@@ -155,18 +155,6 @@ static void animation_update(struct Animation *animation, const AnimationProgres
   time_t now = time(NULL);
   struct tm t = *localtime(&now);
 
-
-  struct tm fake_t;
-
-  fake_t.tm_year = 2001 - 1900;
-  fake_t.tm_mon = 7 - 1;
-  fake_t.tm_mday = 4;
-  fake_t.tm_hour = 0;
-  fake_t.tm_min = 23;
-  fake_t.tm_sec = 1;
-  fake_t.tm_isdst = -1;
-  t = fake_t;
-
   bool something_changed = false;
 
   if (data->last_minute != t.tm_min) {
