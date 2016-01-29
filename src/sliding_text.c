@@ -240,15 +240,29 @@ static void handle_init() {
 
   Layer *window_layer = window_get_root_layer(data->window);
   GRect layer_frame = layer_get_frame(window_layer);
+
   const int16_t width = layer_frame.size.w;
-  init_sliding_row(data, &data->rows[0], GRect(0, 20, width, 60), data->bitham42_bold, 6);
+  const int16_t height = layer_frame.size.h;
+  const int16_t row_height = 36;
+  const int16_t initial_row_y = PBL_IF_ROUND_ELSE(26, 20);
+
+  int16_t current_row_y = initial_row_y;
+  int16_t current_row_h = initial_row_y + 40;
+
+  init_sliding_row(data, &data->rows[0], GRect(0, current_row_y, width, current_row_h), data->bitham42_bold, 6);
   layer_add_child(window_layer, text_layer_get_layer(data->rows[0].label));
+  current_row_y += row_height;
+  current_row_h += row_height;
 
-  init_sliding_row(data, &data->rows[1], GRect(0, 56, width, 96), data->bitham42_light, 3);
+  init_sliding_row(data, &data->rows[1], GRect(0, current_row_y, width, current_row_h), data->bitham42_light, 3);
   layer_add_child(window_layer, text_layer_get_layer(data->rows[1].label));
+  current_row_y += row_height;
+  current_row_h += row_height;
 
-  init_sliding_row(data, &data->rows[2], GRect(0, 92, width, 132), data->bitham42_light, 0);
+  init_sliding_row(data, &data->rows[2], GRect(0, current_row_y, width, current_row_h), data->bitham42_light, 0);
   layer_add_child(window_layer, text_layer_get_layer(data->rows[2].label));
+  current_row_y += row_height;
+  current_row_h += row_height;
 
   GFont norm14 = fonts_get_system_font(FONT_KEY_GOTHIC_14);
 
